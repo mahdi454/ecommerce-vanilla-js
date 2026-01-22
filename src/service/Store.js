@@ -1,13 +1,13 @@
 const Store = {
-  menu: null,
+  featuredData: [],
   cart: [],
 };
 
 const proxyStore = new Proxy(Store, {
   set(target, property, value) {
     target[property] = value;
-    if (property == 'menu') {
-      window.dispatchEvent(new Event('myappmenuchange'));
+    if (property == 'featuredData') {
+      window.dispatchEvent(new Event('appfeaturedDatachange'));
     }
     if (property == 'cart') {
       window.dispatchEvent(new Event('myappcartchange'));

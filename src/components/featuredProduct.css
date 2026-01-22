@@ -1,0 +1,287 @@
+/* ===============================
+   FEATURED PRODUCTS – FULL CSS
+   =============================== */
+
+/* ===== Root Section ===== */
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  background-color: #fafafa;
+  overflow: hidden;
+}
+
+/* ===== Shared State Layout ===== */
+.featured-state {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  gap: 1rem;
+}
+
+/* ===== Loading State ===== */
+.featured-loading {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.featured-loading::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 3px solid #ddd;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: featured-spin 1s linear infinite;
+}
+
+@keyframes featured-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Error State ===== */
+.featured-error {
+  color: #b00020;
+}
+
+.featured-error h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.featured-error p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* ===== Empty State ===== */
+.featured-empty {
+  color: #777;
+}
+
+.featured-empty h3 {
+  font-size: 1.25rem;
+}
+
+.featured-empty p {
+  font-size: 0.95rem;
+}
+
+/* ===== Carousel Wrapper ===== */
+.featured-carousel {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Track */
+.featured-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(245, 247, 247);
+}
+
+/* Cards stacked */
+.featured-card {
+  background: linear-gradient(135deg, #848ea3 0%, #eef5fd 50%, #848fa8 100%);
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: row;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.6s ease;
+}
+
+/* Active card */
+.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Children layout */
+.featured-card > .child {
+  width: 50%;
+  height: 100%;
+}
+
+/* ===== Product Image ===== */
+
+.left > img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 0px;
+}
+
+.image_right_container {
+  background-color: aliceblue;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.image_wrapper > img {
+  width: 85%;
+  height: 75%;
+  margin: 0 auto;
+  border-radius: 0px;
+}
+.detail_con {
+  position: absolute;
+  bottom: -2rem;
+  width: 380px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 0.6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #111827; /* gray-900 */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.title_con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.price_con {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Title */
+.detail_con h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Price */
+.detail_con .price {
+  font-size: 0.99rem;
+  font-weight: 500;
+}
+
+/* Actions row */
+.detail_con .actions {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #fafafa;
+}
+
+/* Buttons */
+.detail_con .btn {
+  flex: 1;
+  padding: 1rem 0;
+
+  border: none;
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  background: rgba(255, 255, 255, 0.389);
+  color: #111827;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.detail_con .btn:hover {
+}
+
+/* Favorite button */
+.detail_con .btn.favorite {
+  flex: 0 0 50%;
+  border-left: 1px solid #fafafa;
+  margin: 0 auto;
+}
+
+/* ===== Carousel Navigation ===== */
+.featured-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  background-color: #ffffff8b;
+  border: none;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-nav.prev {
+  left: 8px;
+  z-index: 3;
+}
+
+.featured-nav.next {
+  right: 8px;
+  z-index: 3;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .featured-card {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .featured-card {
+    flex: 0 0 100%;
+  }
+
+  section {
+    padding: 1rem;
+  }
+}
